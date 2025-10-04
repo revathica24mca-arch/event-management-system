@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Send Message | Petal & Pearl</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      background: #fff5f9;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 550px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 5px 18px #f1adc733;
+    }
+
+    h2 {
+      color: #e75480;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 140px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #ffd6eb;
+      border-radius: 10px;
+      resize: none;
+      outline: none;
+      box-shadow: 0 2px 6px #e3a7cc44;
+      transition: 0.2s;
+    }
+
+    textarea:focus {
+      border-color: #e75480;
+      box-shadow: 0 4px 12px #f2aac944;
+    }
+
+    button {
+      background: linear-gradient(90deg, #e75480, #fbb8d4);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 26px;
+      cursor: pointer;
+      margin-top: 18px;
+      box-shadow: 0 2px 12px 2px #b897b433;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #de4780, #ffc6de);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 15px;
+      color: #e75480;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Send a Message to the Manager</h2>
+    <form id="messageForm" method="POST" action="{{ url_for('send_message') }}">
+      <textarea name="message" placeholder="Type your message here..." required></textarea>
+      <br>
+      <button type="submit">Send Message</button>
+    </form>
+    <a href="{{ url_for('user_dashboard') }}" class="back-link">⬅ Back to Dashboard</a>
+  </div>
+
+  <!-- ✅ Alert + Redirect to Dashboard -->
+  <script>
+    const form = document.getElementById("messageForm");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Stop normal submission
+
+      // ✅ Show success alert
+      alert("✅ Your message has been sent successfully!");
+
+      // ✅ Redirect to dashboard after clicking OK
+      window.location.href = "C:/Users/JNCPG/Documents/petalspro/user/templates/user_dashboard.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Petal & Pearl | User Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* GLOBAL STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: #fffafc;
+      color: #43243B;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8em 5vw;
+      background: linear-gradient(90deg, #f7d5e8 0%, #ffe8f3 100%);
+      box-shadow: 0 3px 18px #eeb8ef18;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar .brandname {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #e75480;
+      text-shadow: 0 2px 8px #f5b9cf;
+      margin: 0;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav-link {
+      background: linear-gradient(90deg, #e75480 20%, #fbb8d4 100%);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      text-decoration: none;
+      box-shadow: 0 2px 12px 2px #b897b433;
+      transition: all 0.25s ease;
+    }
+
+    .nav-link:hover {
+      background: linear-gradient(90deg, #de4780 10%, #ffc6de 90%);
+      box-shadow: 0 8px 21px #e3bfc966;
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .nav-link.logout {
+      background: #fff;
+      color: #e75480;
+      border: 1.2px solid #e75480;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-link.logout:hover {
+      background: #e75480;
+      color: #fff;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      background: url("css/images/CHERRY.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 18px #f3a8d644;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(231, 84, 128, 0.35);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      max-width: 700px;
+    }
+
+    .hero-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      margin-bottom: 12px;
+    }
+
+    .hero-about {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #fffafc;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    /* STATS BAR */
+    .stats-section {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px #f3bcd366;
+      margin: -30px auto 30px auto;
+      padding: 18px 8vw;
+      justify-content: space-around;
+      max-width: 850px;
+    }
+
+    .statbox {
+      flex: 1 0 120px;
+      background: #fff8fb;
+      border-radius: 12px;
+      margin: 8px;
+      padding: 16px 10px;
+      box-shadow: 0 2px 8px #e59fc44d;
+      text-align: center;
+      transition: transform 0.25s ease;
+    }
+
+    .statbox:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 16px #f5a7c633;
+    }
+
+    .stat-icon {
+      font-size: 1.8rem;
+      color: #e75480;
+    }
+
+    .stat-num {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #b84e77;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* GALLERY SECTION */
+    .gallery-section {
+      max-width: 850px;
+      margin: 0 auto 30px auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px #f1adc744;
+      padding: 28px 18px 22px 18px;
+      text-align: center;
+    }
+
+    .gallery-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #e75480;
+      margin-bottom: 12px;
+    }
+
+    .gallery-scroll-container {
+      display: flex;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .gallery-arrow {
+      background: #fff;
+      border: 2px solid #e75480;
+      color: #e75480;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 1.5em;
+      box-shadow: 0 3px 10px #f8bbd044;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .gallery-arrow:hover {
+      background: #e75480;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .gallery-wrap {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 8px;
+      scroll-behavior: smooth;
+      flex: 1 1 auto;
+    }
+
+    .gallery-img {
+      width: 220px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #e3a7cc44;
+      border: 3px solid #ffd6eb;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.06) rotate(-2deg);
+      border-color: #e75480;
+      box-shadow: 0 6px 18px #f2aac944;
+    }
+
+    /* FOOTER */
+    footer {
+      max-width: 850px;
+      margin: 20px auto;
+      color: #b888ad;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 650px) {
+      .navbar { flex-direction: column; align-items: flex-start; gap: 7px; padding: 1em 2vw; }
+      .hero { height: auto; padding: 40px 20px; }
+      .hero-title { font-size: 2rem; }
+      .gallery-img { width: 54vw; height: 30vw; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <span class="brandname">Petal & Pearl</span>
+    <div class="navlinks">
+      <a href="eventlist.html" class="nav-link">View Events</a>
+      <a href="feedback.html" class="nav-link">Feedback</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+       <a href="message.html" class="nav-link">Message</a>
+      <a href="logout.html" class="nav-link logout">Logout</a>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-title">Petal & Pearl</div>
+      <div class="hero-subtitle">Crafting Memorable Events with Elegance</div>
+      <p class="hero-about">
+        Welcome to Petal & Pearl, where every celebration is transformed into an unforgettable memory. 
+        From intimate birthdays to grand corporate gatherings, we curate magical experiences designed 
+        just for you.
+      </p>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-section">
+    <div class="statbox">
+      <span class="stat-icon">🎉</span>
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Years of Expertise</div>
+    </div>
+    <div class="statbox">
+      <span class="stat-icon">📅</span>
+      <div class="stat-num">1.7K+</div>
+      <div class="stat-label">Events Planned</div>
+    </div>
+    <div class="statbox">
+      <span class="stat-icon">😊</span>
+      <div class="stat-num">1.5K+</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div class="statbox">
+      <span class="stat-icon">⭐</span>
+      <div class="stat-num">4.8</div>
+      <div class="stat-label">Customer Rating</div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-section">
+    <div class="gallery-title">Event Gallery</div>
+    <div class="gallery-scroll-container">
+      <button class="gallery-arrow left" aria-label="Scroll Left">&#8592;</button>
+      <div class="gallery-wrap" id="galleryWrap">
+        <img src="C:\Users\JNCPG\Documents\petalspro\css\images\a.jpg" class="gallery-img" alt="event1"/>
+        <img src="C:\Users\JNCPG\Documents\petalspro\css\images\b.jpg" class="gallery-img" alt="event2"/>
+        <img src="C:\Users\JNCPG\Documents\petalspro\css\images\c.jpg" class="gallery-img" alt="event3"/>
+        <img src="C:\Users\JNCPG\Documents\petalspro\css\images\d.jpg" class="gallery-img" alt="event4"/>
+        <img src="C:\Users\JNCPG\Documents\petalspro\css\images\e.jpg" class="gallery-img" alt="event5"/>
+        <img src="C:\Users\JNCPG\Documents\petalspro\css\images\f.jpg" class="gallery-img" alt="event6"/>
+        
+      </div>
+      <button class="gallery-arrow right" aria-label="Scroll Right">&#8594;</button>
+    </div>
+  </div>
+
+ 
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Petal & Pearl Event Management | Designed with 💖
+  </footer>
+
+  <!-- SCRIPT FOR GALLERY -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const galleryWrap = document.getElementById('galleryWrap');
+      const scrollLeftBtn = document.querySelector('.gallery-arrow.left');
+      const scrollRightBtn = document.querySelector('.gallery-arrow.right');
+      const scrollAmount = 250;
+
+      scrollLeftBtn.addEventListener('click', () => {
+        galleryWrap.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+
+      scrollRightBtn.addEventListener('click', () => {
+        galleryWrap.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

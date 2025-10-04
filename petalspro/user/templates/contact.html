@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Petals & Pearls</title>
+  
+  <style>
+    /* Page Background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(rgba(252, 228, 228, 0.75), rgba(255, 255, 255, 0.75)),
+                  url("C:/Users/JNCPG/Documents/petalspro/css/images/petals and pearls.png") center/cover no-repeat fixed;
+    }
+
+    /* Main Contact Container */
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 35px 45px;
+      border-radius: 20px;
+      width: 440px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    /* Logo */
+    .contact-card .logo {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    /* Logo Hover Effect */
+    .contact-card .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(255, 105, 180, 0.9);
+    }
+
+    /* Heading */
+    .contact-card h1 {
+      font-size: 30px;
+      margin: 10px 0;
+      color: #d63384;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-size: 16px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    /* Contact Details */
+    .details {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* Social Media Links */
+    .social-links {
+      margin-top: 15px;
+    }
+
+    .social-links img {
+      width: 38px;
+      height: 38px;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Fade-In Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <div class="contact-card">
+      <!-- Logo -->
+      <img src="C:/Users/JNCPG/Documents/petalspro/css/images/petals and pearls.png" alt="Petals & Pearls Logo" class="logo">
+
+      <!-- Title -->
+      <h1>Contact Us</h1>
+      <p class="tagline">Your dream event, our passion ✨</p>
+      
+      <!-- Contact Details -->
+      <div class="details">
+          <strong>📍 Address:</strong> 
+      <a href="https://www.google.com/maps?q=123+Event+Avenue,+Bangalore,+India" 
+       target="_blank" 
+       style="color: blue; text-decoration: underline;">
+       123, Event Avenue, Bangalore, India
+    </a>
+  </p>
+        <p><strong>📞 Phone:</strong> +91 8792151003</p>
+        <p><strong>📧 Email:</strong> petalsandpearls@gmail.com</p>
+        <p><strong>🌐 Website:</strong> www.petalsandpearls.com</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="WhatsApp"></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

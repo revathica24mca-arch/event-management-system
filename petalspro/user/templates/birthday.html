@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Petal & Pearl | Birthday Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+       background: url('C:/Users/JNCPG/Documents/petalspro/css/images/petals and pearls.png')
+          center/cover no-repeat fixed;
+
+      color: #333;
+    }
+
+    .overlay {
+      background: rgba(255, 248, 248, 0.88);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 22px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #f06292 40%, #ba68c8 100%);
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+    .back-btn:hover { transform: scale(1.05); }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      background: rgba(255,255,255,0.92);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .event-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #e75480;
+      margin-bottom: 10px;
+    }
+
+    .event-desc {
+      font-size: 1.2rem;
+      color: #7e583b;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .services-title {
+      font-weight: 700;
+      color: #e75480;
+      font-size: 1.4rem;
+      margin-bottom: 22px;
+    }
+
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .service-card {
+      background:#ffecbb;
+      border-radius:13px;
+      box-shadow:0 2px 9px #f4ca6e44;
+      width:180px;
+      padding:18px 10px;
+      text-align:center;
+      border:2px solid #ffe5b6;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow:0 8px 32px #fbb45944;
+    }
+    .service-icon { font-size:1.8rem; }
+    .service-name { font-weight:600; font-size:1rem; color:#b17938; }
+    .service-desc { font-size:0.95rem; color:#7e583b; }
+
+    @media (max-width:700px) {
+      .service-card { width:100%; max-width: 250px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <a href="eventlist.html" class="back-btn">← Back to Event list</a>
+
+    <!-- Birthday Intro -->
+    <div class="container">
+      <div class="event-title">Birthday Events</div>
+      <div class="event-desc">
+        <p>At <b>Petal & Pearl</b>, we believe that birthdays are not just dates on the calendar, but milestones worth celebrating with grandeur and love. Whether it’s a child’s first birthday, a teenager’s sweet sixteen, or a golden jubilee, we craft celebrations that are as unique as the person being honored.</p>
+
+        <p>Our team specializes in <b>theme-based decorations</b>, ranging from fairytales, superheroes, floral elegance, and carnival vibes, to sophisticated luxury setups. Every detail is tailored to match the personality and preferences of the birthday star.</p>
+
+        <p>We provide colorful balloon arrangements, vibrant backdrops, customized stage décor, and ambient lighting that set the perfect festive mood. Our fun-filled activities include exciting games, creative stalls, mascots, magic shows, and musical performances to keep guests engaged and entertained throughout.</p>
+
+        <p>To capture every smile and joyful moment, we offer <b>professional photography and videography services</b>, ensuring memories last a lifetime. Our team also takes care of <b>delicious catering options</b>, from kid-friendly treats to multi-course gourmet meals for adult celebrations.</p>
+
+        <p>We add a personal touch with <b>custom cakes, party favors, invitations, and thank-you goodies</b>, making each event unforgettable. With meticulous planning, flawless execution, and heartfelt creativity, Petal & Pearl transforms ordinary birthdays into extraordinary memories.</p>
+
+        <p>Whether it’s an intimate family gathering or a grand celebration with hundreds of guests, we ensure every event reflects warmth, joy, and your vision brought to life. At Petal & Pearl, birthdays aren’t just events—they’re magical experiences woven with love, laughter, and sparkle.</p>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="container">
+      <div class="services-title">Services We Offer</div>
+      <div class="service-list">
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <div class="service-name">Expert Decoration</div>
+          <div class="service-desc">Custom-designed décor tailored to your theme and style.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🕹️</div>
+          <div class="service-name">Games & Stalls</div>
+          <div class="service-desc">Carnival games, mascots, train rides and more for kids.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎤</div>
+          <div class="service-name">Stage Activities</div>
+          <div class="service-desc">Emcee, magic shows & talent for unforgettable fun.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📷</div>
+          <div class="service-name">Photos & Video</div>
+          <div class="service-desc">Pro photography & videos to capture every special moment.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

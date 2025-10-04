@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Your Event</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {background:#fdf6fb;font-family:'Inter', Arial, sans-serif;margin:0;}
+    .tabs {text-align:center;margin:25px 0;}
+    .tabs button {
+      padding:10px 20px;margin:0 6px;cursor:pointer;
+      border:none;border-radius:8px;background:#e75480;color:#fff;
+      font-weight:600;font-size:1rem;transition:all 0.2s;
+    }
+    .tabs button.active {background:#ffbf3a;color:#333;}
+    .book-section {
+      max-width:460px;margin:0 auto 40px auto;border-radius:22px;
+      box-shadow:0 4px 18px #00000020;padding:35px 20px 28px 20px;
+      background:#fff;position:relative;
+    }
+    .book-title {
+      font-family:'Dancing Script', cursive;color:#e75480;
+      font-size:2rem;text-align:center;margin-bottom:18px;
+    }
+    form {display:flex;flex-direction:column;gap:19px;}
+    label {font-weight:600;color:#8c4b75;}
+    input, select, textarea {
+      font-family:'Inter', Arial, sans-serif;
+      padding:10px 8px;margin-top:6px;
+      border:2px solid #eed0f8;border-radius:12px;
+      font-size:1rem;background:#fffdfd;transition:border 0.18s;
+    }
+    input[type="checkbox"] {
+      margin-right:9px;vertical-align:middle;
+      width:1.2em;height:1.2em;accent-color:#e75480;border-radius:4px;
+    }
+    input:focus, textarea:focus {border-color:#e75480;}
+    .services-checkboxes {
+      display:flex;flex-direction:column;gap:8px;margin-top:6px;
+    }
+    .checkbox-label {
+      background:#fff8f9; border-radius:7px; padding:5px 11px;
+      font-size:1rem; display:flex; align-items:center; gap:4px;
+      box-shadow:0 1px 6px #e7548030;margin-bottom:4px;
+    }
+    .form-btn {
+      padding:12px 38px;background:linear-gradient(90deg,#e75480 20%,#ba68c8 100%);
+      color:#fff;border:none;border-radius:18px;font-size:1.08rem;
+      font-family:'Dancing Script',cursive;cursor:pointer;margin-top:6px;
+      box-shadow:0 2px 9px #ea3c8040;font-weight:600;letter-spacing:0.7px;
+      transition:all 0.2s;
+    }
+    .form-btn:hover {
+      background:linear-gradient(90deg,#ba68c8 20%,#e75480 100%);
+      transform:scale(1.05);
+    }
+    .category-services {display:none;}
+    .category-services.active {display:block;}
+    .manager-link {text-align:center;margin-bottom:20px;}
+    .manager-link a {
+      text-decoration:none;background:#ffbf3a;color:#333;
+      padding:8px 16px;border-radius:10px;font-weight:600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Link to Manager Profile -->
+  <div class="manager-link">
+    <a href="manager.html">📋 View Manager Profile</a>
+  </div>
+
+  <!-- Tabs for Categories -->
+  <div class="tabs">
+    <button onclick="showCategory(event,'birthday')" class="active">🎉 Birthday</button>
+    <button onclick="showCategory(event,'corporate')">🏢 Corporate</button>
+    <button onclick="showCategory(event,'general')">💍 General/Wedding</button>
+  </div>
+
+  <!-- Form -->
+  <div class="book-section">
+    <div class="book-title">Book Your Event</div>
+    <form id="bookingForm">
+      <!-- Common Fields -->
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required/>
+
+      <label for="phone">Mobile Number</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10,12}" required/>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required/>
+
+      <label for="date">Event Date</label>
+      <input type="date" id="date" name="date" required/>
+
+      <!-- Birthday Services -->
+      <div id="birthday" class="category-services active">
+        <label>Select Services (Birthday)</label>
+        <div class="services-checkboxes">
+          <label class="checkbox-label"><input type="checkbox" name="services_birthday[]" value="Expert Decoration"/> 🎨 Expert Decoration</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_birthday[]" value="Games & Stalls"/> 🕹️ Games & Stalls</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_birthday[]" value="Stage Activities"/> 🎤 Stage Activities</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_birthday[]" value="Photos & Video"/> 📷 Photos & Video</label>
+        </div>
+      </div>
+
+      <!-- Corporate Services -->
+      <div id="corporate" class="category-services">
+        <label>Select Services (Corporate)</label>
+        <div class="services-checkboxes">
+          <label class="checkbox-label"><input type="checkbox" name="services_corporate[]" value="Event Branding"/> 🏢 Event Branding</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_corporate[]" value="Conferences"/> 🎤 Conferences</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_corporate[]" value="Product Launch"/> 🎊 Product Launch</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_corporate[]" value="Team Outings"/> 👥 Team Outings</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_corporate[]" value="Live Webcast"/> 📽️ Live Webcast</label>
+        </div>
+      </div>
+
+      <!-- General/Wedding Services -->
+      <div id="general" class="category-services">
+        <label>Select Services (General/Wedding)</label>
+        <div class="services-checkboxes">
+          <label class="checkbox-label"><input type="checkbox" name="services_general[]" value="Wedding Films"/> 🎥 Wedding Films</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_general[]" value="Bridal Makeup"/> 💄 Bridal Makeup</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_general[]" value="Entertainment"/> 🎶 Entertainment</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_general[]" value="Invitations"/> ✉️ Invitations</label>
+          <label class="checkbox-label"><input type="checkbox" name="services_general[]" value="Stage & Décor"/> 🌸 Stage & Décor</label>
+        </div>
+      </div>
+
+      <!-- Common Details -->
+      <label for="details">Other Details</label>
+      <textarea id="details" name="details" rows="3" placeholder="Tell us your theme, colours, or ideas!"></textarea>
+
+      <button class="form-btn" type="submit">Submit Booking</button>
+    </form>
+  </div>
+<script>
+  // Function to switch between categories
+  function showCategory(event, category) {
+    document.querySelectorAll('.category-services').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(category).classList.add('active');
+
+    document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // Form submission handler
+  document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const booking = {};
+
+    // Get common fields
+    booking.name = document.getElementById("name").value.trim();
+    booking.phone = document.getElementById("phone").value.trim();
+    booking.email = document.getElementById("email").value.trim();
+    booking.date = document.getElementById("date").value;
+    booking.details = document.getElementById("details").value.trim();
+
+    // Get checkbox selections for each category
+    function getCheckedValues(name) {
+      const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+      return Array.from(checkboxes).map(cb => cb.value);
+    }
+
+    booking["services_birthday[]"] = getCheckedValues("services_birthday[]");
+    booking["services_corporate[]"] = getCheckedValues("services_corporate[]");
+    booking["services_general[]"] = getCheckedValues("services_general[]");
+
+    // Save to localStorage
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.push(booking);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    // Redirect to dashboard
+    window.location.href = "user_dashboard.html"; // Replace with your dashboard page
+  });
+</script>
+
+
+</body>
+</html>

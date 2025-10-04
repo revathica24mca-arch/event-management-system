@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Manager – Booked Events</title>
+  <style>
+    body {font-family: Arial, sans-serif; background:#f8f3fb; padding:20px;}
+    h1 {color:#e75480;text-align:center;}
+    .event-card {
+      background:#fff; padding:15px; margin:12px auto;
+      border-radius:12px; box-shadow:0 3px 8px #00000020;
+      max-width:500px;
+    }
+    .event-card h3 {margin:0; color:#333;}
+    .event-card p {margin:6px 0; color:#555;}
+    .back-link {text-align:center;margin-top:20px;}
+    .back-link a {
+      text-decoration:none;background:#ffbf3a;color:#333;
+      padding:8px 16px;border-radius:10px;font-weight:600;
+    }
+  </style>
+</head>
+<body>
+  <h1>📋 Manager – Booked Events</h1>
+  <div id="events"></div>
+
+  <div class="back-link">
+    <a href="manager_dashboard.html">⬅️ Back to  Dashboard</a>
+  </div>
+
+  <script>
+ 
+  const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  const eventsDiv = document.getElementById("events");
+
+  if (bookings.length === 0) {
+    eventsDiv.innerHTML = "<p>No events booked yet.</p>";
+  } else {
+    bookings.forEach((b, i) => {
+      // Combine all services into one string
+      const services = [
+        ...(b["services_birthday[]"] || []),
+        ...(b["services_corporate[]"] || []),
+        ...(b["services_general[]"] || [])
+      ].join(", ");
+
+      const div = document.createElement("div");
+      div.className = "event-card";
+      div.innerHTML = `
+        <h3>Event #${i+1} – ${b.name}</h3>
+        <p><b>Mobile:</b> ${b.phone}</p>
+        <p><b>Email:</b> ${b.email}</p>
+        <p><b>Date:</b> ${b.date}</p>
+        <p><b>Services:</b> ${services || "N/A"}</p>
+        <p><b>Other Details:</b> ${b.details || "N/A"}</p>
+      `;
+      eventsDiv.appendChild(div);
+    });
+  }
+</script>
+
+</body>
+</html>

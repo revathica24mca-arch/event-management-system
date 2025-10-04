@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Feedback</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', Arial, sans-serif;
+      background: linear-gradient(rgba(241, 197, 223, 0.7), rgba(255, 255, 255, 0.7)),
+                  url('/static/images/petals.png') center/cover no-repeat fixed;
+    }
+    .feedback-container {
+      max-width: 500px;
+      width: 100%;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 4px 18px #00000020;
+      padding: 35px 25px;
+      text-align: center;
+    }
+    .feedback-title {
+      font-family: 'Dancing Script', cursive;
+      color: #e75480;
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      text-align: left;
+    }
+    label {
+      font-weight: 600;
+      color: #8c4b75;
+    }
+    input, select, textarea {
+      font-family: 'Inter', Arial, sans-serif;
+      padding: 10px 12px;
+      border: 2px solid #eed0f8;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: #fffdfd;
+      transition: border 0.18s;
+      width: 100%;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: #e75480;
+      outline: none;
+    }
+    .rating-stars {
+      display: flex;
+      gap: 8px;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #ccc;
+    }
+    .rating-stars span.active {
+      color: #e75480;
+    }
+    .form-btn {
+      padding: 12px 38px;
+      background: linear-gradient(90deg,#e75480 20%,#ba68c8 100%);
+      color: #fff;
+      border: none;
+      border-radius: 18px;
+      font-size: 1.08rem;
+      font-family: 'Dancing Script', cursive;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 2px 9px #ea3c8040;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      transition: all 0.2s;
+    }
+    .form-btn:hover {
+      background: linear-gradient(90deg,#ba68c8 20%,#e75480 100%);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="feedback-container">
+    <div class="feedback-title">Your Feedback Matters 💌</div>
+    <form action="/feedback" method="POST">
+
+
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="date">Event Date</label>
+      <input type="date" id="date" name="date" required/>
+
+      <label for="event">Event Type</label>
+      <select id="event" name="event" required>
+        <option value="">-- Select Event --</option>
+        <option>Birthday Party</option>
+        <option>Corporate Event</option>
+        <option>Wedding</option>
+        <option>Other</option>
+      </select>
+
+      <label>Rate Our Service</label>
+      <div class="rating-stars" id="rating">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+      <input type="hidden" name="rating" id="rating-value" required>
+
+
+      <label for="feedback">Your Feedback</label>
+      <textarea id="feedback" name="feedback" rows="4" placeholder="Share your experience with us..." required></textarea>
+
+      <button class="form-btn" type="submit">Submit Feedback</button>
+    </form>
+
+    <script>
+      const stars = document.querySelectorAll("#rating span");
+      const ratingValue = document.getElementById("rating-value");
+
+      stars.forEach(star => {
+        star.addEventListener("click", () => {
+          let value = star.getAttribute("data-value");
+          ratingValue.value = value;
+
+          stars.forEach(s => s.classList.remove("active"));
+          for (let i = 0; i < value; i++) {
+            stars[i].classList.add("active");
+          }
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>

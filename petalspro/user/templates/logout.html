@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logout - Petals & Pearls</title>
+  
+  <style>
+    /* Background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+                  url("C:/Users/JNCPG/Documents/petalspro/css/images/petals and pearls.png") center/cover no-repeat fixed;
+    }
+
+    /* Container */
+    .logout-container {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 40px 50px;
+      border-radius: 20px;
+      width: 450px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    /* Logo */
+    .logout-container img {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .logout-container img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 40px rgba(255, 105, 180, 0.9);
+    }
+
+    /* Heading */
+    h1 {
+      color: #d63384;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    /* Message */
+    p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+
+    /* Logout Button */
+    .logout-btn {
+      display: inline-block;
+      background-color: #d63384;
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(214, 51, 132, 0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #c21872;
+      transform: scale(1.08);
+      box-shadow: 0 8px 25px rgba(214, 51, 132, 0.6);
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="logout-container">
+    <!-- Logo -->
+    <img src="C:/Users/JNCPG/Documents/petalspro/css/images/petals and pearls.png" alt="Petals & Pearls Logo">
+
+    <!-- Heading -->
+    <h1>You’ve Logged Out</h1>
+    <p>Thank you for visiting Petals & Pearls 🌸 <br> We hope to see you again soon!</p>
+
+    <!-- Logout Button -->
+    <button class="logout-btn" onclick="window.location.href='C:/Users/JNCPG/Documents/petalspro/user/templates/user_login.html'">Go to Login</button>
+  </div>
+</body>
+</html>

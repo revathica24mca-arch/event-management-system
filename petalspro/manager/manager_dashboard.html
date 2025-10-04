@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petal & Pearl | Manager Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-pink: #e75480;
+      --light-pink: #fbb8d4;
+      --bg-gradient: linear-gradient(90deg, #f7d5e8 0%, #ffe8f3 100%);
+      --text-dark: #43243B;
+      --card-shadow: 0 4px 16px #eaaed455;
+      --btn-shadow: 0 4px 12px rgba(231,84,128,0.3);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fffafc;
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav.navbar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0.8em 5vw;
+      background: var(--bg-gradient);
+      box-shadow: 0 3px 18px #eeb8ef18;
+      position: sticky;
+      top:0;
+      z-index: 10;
+    }
+    .brandname {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      font-weight:700;
+      color: var(--primary-pink);
+      text-shadow: 0 2px 8px #f5b9cf;
+    }
+    .navlinks { display:flex; gap:12px; align-items:center; }
+    .nav-link {
+      background: linear-gradient(90deg, var(--primary-pink) 20%, var(--light-pink) 100%);
+      color: #fff;
+      font-weight:600;
+      font-size:0.95rem;
+      border:none;
+      border-radius:8px;
+      padding:8px 16px;
+      text-decoration:none;
+      box-shadow: var(--btn-shadow);
+      transition: all 0.25s ease;
+    }
+    .nav-link:hover { transform:translateY(-2px) scale(1.05); }
+    .nav-link.logout {
+      background:#fff;
+      color: var(--primary-pink);
+      border:1.2px solid var(--primary-pink);
+    }
+    .nav-link.logout:hover { background: var(--primary-pink); color:#fff; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      width:100%;
+      height:250px;
+      background: url("css/images/manager-bg.jpg") center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      color:white;
+      box-shadow: 0 4px 18px #f3a8d644;
+    }
+    .hero-overlay { position:absolute; inset:0; background: rgba(231, 84, 128, 0.45); }
+    .hero-content { position: relative; z-index:2; padding:20px; }
+    .hero-title { font-family: 'Dancing Script', cursive; font-size:2.8rem; margin-bottom:10px; text-shadow: 0 3px 12px rgba(0,0,0,0.3);}
+    .hero-subtitle { font-size:1.15rem; letter-spacing:0.5px; font-weight:500; text-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+
+    /* QUICK ACTION BUTTONS */
+    .quick-actions {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      margin: 25px 0 10px 0;
+    }
+    .quick-actions a {
+      flex:1;
+      max-width:200px;
+      text-align:center;
+      padding:15px 20px;
+      font-weight:600;
+      font-size:1rem;
+      border-radius:12px;
+      color:#fff;
+      text-decoration:none;
+      background: linear-gradient(90deg, var(--primary-pink) 20%, var(--light-pink) 100%);
+      box-shadow: var(--btn-shadow);
+      transition: all 0.25s ease;
+    }
+    .quick-actions a:hover { transform:translateY(-3px) scale(1.05); }
+
+    /* DASHBOARD CARDS */
+    .dashboard {
+      max-width: 950px;
+      margin: 20px auto 30px auto;
+      padding: 0 25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background:#fff;
+      border-radius:16px;
+      box-shadow: var(--card-shadow);
+      padding:22px;
+      text-align:center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover { 
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 25px #eaaed466;
+    }
+    .card h3 { font-size:1.3rem; color: var(--primary-pink); margin-bottom:10px; }
+    .card p { color:#555; font-size:0.95rem; margin-bottom:14px; }
+    .card a {
+      display:inline-block;
+      background: linear-gradient(90deg, var(--primary-pink) 20%, var(--light-pink) 100%);
+      color:white;
+      padding:8px 18px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.25s ease;
+    }
+    .card a:hover { background: linear-gradient(90deg, #de4780 10%, #ffc6de 90%); }
+
+    /* FOOTER */
+    footer { max-width:950px; margin:20px auto; color:#b888ad; font-size:0.95rem; text-align:center; }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <span class="brandname">Petal & Pearl</span>
+    <div class="navlinks">
+      <a href="send-message.html" class="nav-link">Send Message</a>
+      <a href="send-feedback.html" class="nav-link">Send Feedback</a>
+      <a href="logout.html" class="nav-link logout">Logout</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Manager Dashboard</h1>
+      <p class="hero-subtitle">Quick access to feedback, messages & bookings</p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD CARDS -->
+  <section class="dashboard">
+    <div class="card">
+      <h3>💌 Customer Feedback</h3>
+      <p>Check all feedback submitted by customers.</p>
+      <a href="manager_feedback.html">View Feedback</a>
+    </div>
+    <div class="card">
+      <h3>📋 Customer Booked Events</h3>
+      <p>See all the events booked by customers.</p>
+      <a href="booked.html">View Bookings</a>
+    </div>
+    <div class="card">
+      <h3>✉️ Customer Messages</h3>
+      <p>Read messages and inquiries sent by customers.</p>
+      <a href="messages.html">View Messages</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Petal & Pearl Event Management | Manager Panel
+  </footer>
+</body>
+</html>

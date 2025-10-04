@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creative Event Categories</title>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: url("C:/Users/JNCPG/Documents/petalspro/css/images/z.jpg") no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255,192,203,0.23);
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px 40px 50px;
+      background: rgba(255,255,255,0.55);
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(100,0,100,0.14);
+      backdrop-filter: blur(6px);
+      text-align: center;
+    }
+
+    .header-img {
+      width: 100%;
+      border-radius: 28px 28px 0 0;
+      box-shadow: 0 2px 14px rgba(180,60,180,0.09);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.7rem;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      color: #a1176a;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .categories {
+      display: flex;
+      gap: 32px;
+      justify-content: space-around;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 4px 18px rgba(144, 19, 255, 0.13);
+      border-radius: 20px;
+      padding: 20px 15px 25px;
+      text-align: center;
+      width: 29%;
+      position: relative;
+      transition: transform 0.14s, box-shadow 0.18s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(200,19,255,0.22);
+    }
+
+    .flower-img {
+      width: 82px;
+      height: 82px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ff99cc;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 12px rgba(250,100,200,0.11);
+    }
+
+    .card h3 {
+      margin-bottom: 11px;
+      font-size: 1.27rem;
+      color: #e91e63;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .desc {
+      font-size: 1rem;
+      color: #594133;
+      margin-bottom: 16px;
+      min-height: 56px;
+      padding: 0 5px;
+    }
+
+    .view-more {
+      display: inline-block;
+      padding: 10px 36px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #f06292 40%, #ba68c8 100%);
+      color: #fff;
+      box-shadow: 0 2px 7px rgba(144, 19, 255, 0.11);
+      font-weight: bold;
+      font-size: 1.01rem;
+      letter-spacing: 0.7px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.12s;
+    }
+
+    .view-more:hover {
+      background: linear-gradient(90deg, #ad1457 40%, #6a1b9a 100%);
+      transform: scale(1.08);
+    }
+
+    /* Book Event Button */
+    .book-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 40px;
+      border-radius: 28px;
+      background: linear-gradient(90deg, #ff6f91, #d66dff);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+      transition: all 0.2s ease;
+    }
+
+    .book-btn:hover {
+      background: linear-gradient(90deg, #d81b60, #8e24aa);
+      transform: scale(1.07);
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        max-width: 99vw;
+        padding: 18px 2vw 22px;
+      }
+      .categories {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .card {
+        width: 97%;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+    <img src="C:/Users/JNCPG/Documents/petalspro/css/images/petals and pearls.png" class="header-img" alt="Elegant table decor">
+    <h2>Make Your Event a Lasting Song</h2>
+
+    <div class="categories">
+      <div class="card">
+        <img src="C:/Users/JNCPG/Documents/petalspro/css/images/a.jpg" alt="Birthday Flowers" class="flower-img">
+        <h3>Birthday Parties</h3>
+        <div class="desc">Colorful bouquets and vibrant floral décor set the mood for joyful celebrations.</div>
+        <a href="birthday.html" class="view-more">View More</a>
+      </div>
+
+      <div class="card">
+        <img src="C:/Users/JNCPG/Documents/petalspro/css/images/f.jpg" alt="Wedding Flowers" class="flower-img">
+        <h3>Wedding</h3>
+        <div class="desc">Romantic arrangements and exquisite blooms to make your wedding breathtaking.</div>
+        <a href="marriage.html" class="view-more">View More</a>
+      </div>
+
+      <div class="card">
+        <img src="C:/Users/JNCPG/Documents/petalspro/css/images/q.jpg" alt="Corporate Flowers" class="flower-img">
+        <h3>Corporate Events</h3>
+        <div class="desc">Professional floral designs add elegance to your meetings and conferences.</div>
+        <a href="coperate.html" class="view-more">View More</a>
+      </div>
+    </div>
+
+    <!-- Book Event Button -->
+    <a href="book.html" class="book-btn">📅 Book Event Here</a>
+  </div>
+</body>
+</html>

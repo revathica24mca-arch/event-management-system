@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petal & Pearl - Event Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: url("C:\Users\JNCPG\Documents\petalspro\css\images\CHERRY.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .petal {
+    position: absolute;
+    top: -10%;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    color: #f48fb1;
+    pointer-events: none; /* Allow clicks to pass through */
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+  }
+
+  .welcome-container {
+    background: rgba(255,255,255,0.95);
+    padding: 50px 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 8px 28px rgba(216, 80, 135, 0.2);
+    backdrop-filter: blur(5px);
+    max-width: 440px;
+    z-index: 2;
+  }
+
+  .brandname {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #e75480;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .brand-flower { font-size: 2rem; color: #f06292; }
+
+  .subtitle { font-size: 1.05rem; color: #9c4b72; font-style: italic; margin-bottom: 28px; }
+
+  .btn-group { display: flex; flex-direction: column; gap: 18px; }
+
+  .btn {
+    background: linear-gradient(120deg, #f48fb1, #e75480);
+    color: white;
+    border: none;
+    border-radius: 18px;
+    padding: 14px 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 14px rgba(240, 128, 180, 0.35);
+  }
+
+  .btn:hover {
+    background: linear-gradient(120deg, #e75480, #ffb6c1);
+    transform: scale(1.07) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(240, 128, 180, 0.45);
+  }
+
+  footer { font-size: 0.9rem; color: #9c6b82; margin-top: 20px; }
+
+  @media(max-width:600px){
+    .welcome-container { padding: 30px 20px; border-radius: 16px; }
+    .brandname { font-size: 2rem; }
+    .btn { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating petals -->
+<script>
+  const petalSymbols = ["🌸","🌺","💮","🌷"];
+  for(let i=0;i<15;i++){
+    const petal=document.createElement("div");
+    petal.className="petal";
+    petal.textContent=petalSymbols[Math.floor(Math.random()*petalSymbols.length)];
+    petal.style.left=Math.random()*100+"vw";
+    petal.style.animationDuration=(6+Math.random()*5)+"s";
+    petal.style.fontSize=(1+Math.random()*1.5)+"rem";
+    document.body.appendChild(petal);
+  }
+</script>
+
+<div class="welcome-container">
+  <div class="brandname"><span class="brand-flower">🌸</span> Petal & Pearl <span class="brand-flower">🌸</span></div>
+  <div class="subtitle">Your celebration, our expertise. Elegant events await!</div>
+  <div class="btn-group">
+    <a href="C:\Users\JNCPG\Documents\petalspro\user\templates\user_login.html" class="btn">User login</a>
+    <a href="C:\Users\JNCPG\Documents\petalspro\manager\manager_login.html" class="btn">Event Manager</a>
+  </div>
+  <footer>© 2025 Petal & Pearl | Designed with 💖</footer>
+</div>
+
+</body>
+</html>
